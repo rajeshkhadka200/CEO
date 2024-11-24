@@ -2,19 +2,20 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
 
-import Home from "./pages/index.jsx";
+import Ceo from "./pages/Ceo.jsx";
+import Home from "./pages/Home.jsx";
 
-// import "./App.css";
-
-// Define the routes for your app
 const paths = [
   {
     path: "/",
     element: <Home />,
   },
+  {
+    path: "/ceo",
+    element: <Ceo />,
+  },
 ];
 
-// Create the browser router instance
 const router = createBrowserRouter(paths);
 
 const App = () => {

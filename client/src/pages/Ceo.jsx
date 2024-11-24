@@ -4,7 +4,8 @@ import axios from "axios";
 import Draggable from "react-draggable";
 import { SWATCHES } from "../constants.js";
 
-export default function Home() {
+
+export default function Ceo() {
   const canvasRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [color, setColor] = useState("rgb(255, 255, 255)");
