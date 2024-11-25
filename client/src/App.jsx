@@ -1,29 +1,18 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "@mantine/core/styles.css";
-import { MantineProvider } from "@mantine/core";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Ceo from "./pages/Ceo";
 
-import Ceo from "./pages/Ceo.jsx";
-import Home from "./pages/Home.jsx";
-
-const paths = [
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/ceo",
-    element: <Ceo />,
-  },
-];
-
-const router = createBrowserRouter(paths);
-
-const App = () => {
+function App() {
   return (
-    <MantineProvider>
-      <RouterProvider router={router} />
-    </MantineProvider>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/ceo" element={<Ceo />} />
+        </Routes>
+      </Router>
+    </>
   );
-};
+}
 
 export default App;

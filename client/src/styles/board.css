@@ -1,0 +1,6 @@
+.canvas_board {
+  /* background-color: red; */
+  width: 100%;
+  height: calc(100vh - 128px);
+  /* height: calc(100vh - 0px); */
+}
