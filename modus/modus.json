@@ -9,7 +9,7 @@
   },
   "models": {},
   "connections": {
-    "gc-dgraph": {
+    "ceo-dgraph": {
       "type": "dgraph",
       "grpcTarget": "https://blue-surf-1350043.us-east-1.aws.cloud.dgraph.io/graphql",
       "key": "{{DGRAPH_API_KEY}}"
