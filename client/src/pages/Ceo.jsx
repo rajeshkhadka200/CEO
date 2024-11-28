@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Board from "../components/Board";
 import colours from "../libs/colours";
+import Additional from "../components/Additional";
 const Ceo = () => {
   const [color, setColor] = useState(colours[0]); // Default to the first color
 
@@ -17,9 +18,10 @@ const Ceo = () => {
   const handleExecute = () => {
     console.log("Execute button clicked");
     // Add any execution logic here
+    alert("Execute button clicked");
   };
   return (
-    <div>
+    <>
       <Header
         selectedColor={color}
         onSelectColor={setColor}
@@ -27,7 +29,8 @@ const Ceo = () => {
         onExecute={handleExecute}
       />
       <Board color={color} />
-    </div>
+      
+    </>
   );
 };
 

@@ -12,18 +12,19 @@ const Header = ({ selectedColor, onSelectColor, onReset, onExecute }) => {
         {colours.map((colour, index) => (
           <div
             key={index}
-            className={`colour ${
-              selectedColor === colour ? "active" : ""
-            }`} // Add "active" class if this is the selected color
+            className={`colour ${selectedColor === colour ? "active" : ""}`}
             style={{
               backgroundColor: colour,
-              border: selectedColor === colour ? "2px solid white" : "none", // Optional inline style for border
+              border: selectedColor === colour ? "2px solid white" : "none",
             }}
             onClick={() => onSelectColor(colour)} // Set color on click
           ></div>
         ))}
       </div>
-      <button className="run" onClick={onExecute}>
+      {/* <button className="run" onClick={onExecute}>
+        Execute
+      </button> */}
+      <button className="run" onClick={onReset}>
         Execute
       </button>
     </div>

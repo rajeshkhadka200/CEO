@@ -1,10 +1,13 @@
 import React, { useRef, useState, useEffect } from "react";
 import "../styles/board.css";
+import Additional from "./Additional";
 
 const Board = ({ color }) => {
   const canvasRef = useRef(null); // Reference to the canvas element
   const [isDrawing, setIsDrawing] = useState(false); // Track drawing state
   const [ctx, setCtx] = useState(null); // Store canvas context
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   // Initialize the canvas context (only once)
   useEffect(() => {
@@ -69,15 +72,18 @@ const Board = ({ color }) => {
   };
 
   return (
-    <canvas
-      ref={canvasRef}
-      id="canvas"
-      className="canvas_board"
-      onMouseDown={startDrawing}
-      onMouseMove={draw}
-      onMouseUp={stopDrawing}
-      onMouseOut={stopDrawing}
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        id="canvas"
+        className="canvas_board"
+        onMouseDown={startDrawing}
+        onMouseMove={draw}
+        onMouseUp={stopDrawing}
+        onMouseOut={stopDrawing}
+      />
+      <Additional />
+    </>
   );
 };
 
