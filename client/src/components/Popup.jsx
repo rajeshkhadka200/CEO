@@ -3,7 +3,13 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { IoCloseOutline } from "react-icons/io5";
 
-const Popup = ({ open, handleClose }) => {
+const Popup = ({
+  open,
+  handleClose,
+  setDescription,
+  onExecute,
+  description,
+}) => {
   const style = {
     borderRadius: "5px",
     outline: "none",
@@ -18,43 +24,47 @@ const Popup = ({ open, handleClose }) => {
     border: "1px solid #3e3e3e88",
   };
 
-  const [desc, setdesc] = useState("");
-  const handleDesc = (e) => {
-    setdesc(e.target.value);
+  const [desc, setDesc] = useState("");
+
+  const handleDescChange = (e) => {
+    setDesc(e.target.value);
   };
 
-  console.log(desc);
+  const handleOkay = () => {
+    setDescription(desc);
+    console.log(description);
+
+    onExecute();
+    // handleClose();
+  };
 
   return (
-    <>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <div className="header_popup">
-            <h3>Add Additional Description : </h3>
-            <div className="cross">
-              <IoCloseOutline />
-            </div>
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={style}>
+        <div className="header_popup">
+          <h3>Add Additional Description:</h3>
+          <div className="cross" onClick={handleClose}>
+            <IoCloseOutline />
           </div>
-          <div className="content_additional">
-            <textarea
-              onChange={handleDesc}
-              rows="4"
-              type="text"
-              placeholder="Enter the extra description about your problem."
-            />
-
-            <div className="popupfooter">
-              <button>Okay</button>
-            </div>
+        </div>
+        <div className="content_additional">
+          <textarea
+            value={desc}
+            onChange={handleDescChange}
+            rows="4"
+            placeholder="Enter the extra description about your problem."
+          />
+          <div className="popupfooter">
+            <button onClick={handleOkay}>Okay</button>
           </div>
-        </Box>
-      </Modal>
-    </>
+        </div>
+      </Box>
+    </Modal>
   );
 };
 

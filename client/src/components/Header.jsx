@@ -21,10 +21,7 @@ const Header = ({ selectedColor, onSelectColor, onReset, onExecute }) => {
           ></div>
         ))}
       </div>
-      {/* <button className="run" onClick={onExecute}>
-        Execute
-      </button> */}
-      <button className="run" onClick={onReset}>
+      <button className="run" onClick={onExecute}>
         Execute
       </button>
     </div>

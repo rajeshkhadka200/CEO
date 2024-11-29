@@ -4,3 +4,5 @@
 /raw.jsx
 
 /modus/build
+/server/node_modules
+/server/.env
