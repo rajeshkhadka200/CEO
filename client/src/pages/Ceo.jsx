@@ -7,7 +7,10 @@ import axios from "axios";
 import Sidebar from "../components/Sidebar";
 import { ContextProvider } from "../config/Context";
 
+
 const Ceo = () => {
+  const [isloadingRes, setisloadingRes] = useState(false);
+  const [image, setImage] = useState("");
   const { extraDesc, setExtraDesc } = useContext(ContextProvider);
   const [result, setisResult] = useState(false);
   const [color, setColor] = useState(colours[0]);
@@ -25,6 +28,7 @@ const Ceo = () => {
   };
 
   const handleExecute = async () => {
+    setisloadingRes(true);
     const canvas = canvasRef.current;
     if (!canvas) {
       console.log("Canvas not found.");
@@ -36,12 +40,13 @@ const Ceo = () => {
       image,
       extraDesc,
     };
+    setImage(image);
 
     try {
       setTimeout(() => {
         setIsSidebarOpen(true); // Automatically open sidebar
         setisResult(true);
-      }, 500);
+      }, 200);
 
       const response = await axios.post(
         "http://localhost:5000/api/getdraw",
@@ -54,8 +59,10 @@ const Ceo = () => {
       );
 
       if (response.status === 200) {
+        setisloadingRes(false);
         console.log("Data sent successfully.");
       } else {
+        setisloadingRes(false);
         console.error("Failed to send data.");
       }
     } catch (error) {
@@ -80,6 +87,9 @@ const Ceo = () => {
         setDescription={setDescription}
       />
       <Sidebar
+        isloadingRes={isloadingRes}
+        setisloadingRes={setisloadingRes}
+        image={image}
         isOpen={isSidebarOpen}
         toggleSidebar={setIsSidebarOpen} // Pass the state updater function
       />

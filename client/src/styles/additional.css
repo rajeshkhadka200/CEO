@@ -43,11 +43,11 @@
   gap: 10px;
 }
 .popupfooter button {
-  background-color: #2176ff;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   padding: 8px 16px;
   border: 0;
-  border-radius: 2px;
+  border-radius: 5px;
   cursor: pointer;
 }
 .header_popup {

@@ -2,5 +2,69 @@
   background-color: #171717;
   height: 100vh;
   color: #fff;
+  overflow-y: scroll;
   border: 1px solid #3e3e3e88;
+}
+
+.img_con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 15px 10px; */
+  height: 220px;
+  width: 100%;
+  border-bottom: 2px solid #3e3e3eb0;
+}
+
+.img_con img {
+  width: 500px;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Question Section */
+.question_section {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+}
+
+.question_title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+/* Markdown Section */
+.markdown_section {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+}
+
+.markdown_title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.markdown_content {
+  font-size: 16px;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sidebar {
+    padding: 15px;
+  }
+  .img_con img {
+    width: 100%;
+    height: auto;
+  }
 }
