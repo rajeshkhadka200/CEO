@@ -18,7 +18,6 @@ const PORT = process.env.PORT || 5000;
 
 // register a route from the routes folder in es6 syntax
 app.use("/api", drawRouter);
-console.log(process.env.API_KEY_GEMENI);
 
 app.listen(PORT, () => {
   console.log(`Server running at : ${PORT}`);
