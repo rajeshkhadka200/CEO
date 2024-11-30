@@ -30,9 +30,12 @@ export const processImg = async (imageBuffer, description) => {
  `;
 
   let prompttoModus = `
-  Act as a CEO, Engineer, or Problem Solver and provide a relevant answer to the given question. Ensure that you break down all the necessary steps to solve the problem. The problem could span across various domains, including business, finance, logical reasoning, or mathematics. Your answer should include an in-depth analysis of the problem, potential risk factors, ways to improve, and other relevant suggestions (if applicable to the question). 
-  Note: Make sure you provide the answer in perfect markdown format. Do not use too large headings(strictly always use h4 headings only if needed). Use the correct markdown syntax to represent the content and rewrite the answer accordingly. Always leave two line extra after completing one heading to maintain readability (maintain a vertical gap between the two paragraph). Strictly, don't use any bullet points or numbering in the answer.  
-  `;
+  Respond as a CEO, Engineer, or Problem Solver by providing a detailed solution to the given question. Your answer should include a step-by-step breakdown of the problem-solving process, covering all necessary aspects. The question may pertain to various fields such as business, finance, logical reasoning, or mathematics. Ensure your response contains an in-depth analysis, identifies potential risks, suggests areas for improvement, and includes other relevant recommendations if applicable.
+  Formatting Guidelines:
+- Present your response in perfect markdown format.
+- Use only h4 headings where necessary, and follow proper markdown syntax.
+- Leave two blank lines after each heading or paragraph to enhance readability.
+- Avoid using bullet points or numbered lists; present the content in well-structured paragraphs.`;
   const data = await fetchGraphQL(INVOKE_MODEL, {
     instruction: prompttoModus, // give the background instruction for the modus model.
     prompt: question, // prompt for the modus model.
