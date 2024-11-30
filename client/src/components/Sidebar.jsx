@@ -6,30 +6,13 @@ import Skeleton from "@mui/material/Skeleton";
 
 import "../styles/Sidebar.css";
 
-const Sidebar = ({
-  isOpen,
-  toggleSidebar,
-  image,
-  isloadingRes,
-  setisloadingRes,
-}) => {
-  const [question, setQuestion] = useState("How can I draw in the canvas?");
+const Sidebar = ({ isOpen, toggleSidebar, image, isloadingRes, output }) => {
+  console.log("Output:", output);
 
   const toggleDrawer = (open) => () => {
     toggleSidebar(open); // Use the passed function to toggle sidebar state
   };
 
-  const md = `
-  # hello 
-  This is rajes Khadka. x+2 =0 \n
-  Now, the solution of the equation is x = -2 \n
-  the math is the hashndoe is the main problem of the solution and 
-  Now, the solution of the equation is x = -2 \n
-  the math is the hashndoe is the main problem of the solution and 
-  Now, the solution of the equation is x = -2 \n
-  the math is the hashndoe is the main problem of the solution and 
-  Now, the solution of the equation is x = -
-  `;
   return (
     <div>
       <SwipeableDrawer
@@ -62,7 +45,7 @@ const Sidebar = ({
                   sx={{
                     width: "100%",
                     height: 50,
-                    bgcolor: "rgba(255, 255, 255, 0.1)", // Slightly lighter shade
+                    bgcolor: "rgba(255, 255, 255, 0.1)",
                   }}
                 />
                 <br />
@@ -71,7 +54,7 @@ const Sidebar = ({
                   sx={{
                     width: "80%",
                     height: 50,
-                    bgcolor: "rgba(255, 255, 255, 0.1)", // Slightly lighter shade
+                    bgcolor: "rgba(255, 255, 255, 0.1)",
                   }}
                 />
                 <br />
@@ -80,7 +63,7 @@ const Sidebar = ({
                   sx={{
                     height: 50,
                     width: "50%",
-                    bgcolor: "rgba(255, 255, 255, 0.1)", // Slightly lighter shade
+                    bgcolor: "rgba(255, 255, 255, 0.1)",
                   }}
                 />
                 <br />
@@ -89,7 +72,7 @@ const Sidebar = ({
                   sx={{
                     height: 50,
                     width: "100%",
-                    bgcolor: "rgba(255, 255, 255, 0.1)", // Slightly lighter shade
+                    bgcolor: "rgba(255, 255, 255, 0.1)",
                   }}
                 />
               </>
@@ -97,13 +80,13 @@ const Sidebar = ({
               <>
                 <div className="question_section">
                   <h3 className="question_title">Question:</h3>
-                  <p>{question}</p>
+                  <Markdown>{output?.data?.que}</Markdown>
                 </div>
 
                 {/* Markdown Section */}
                 <div className="markdown_section">
                   <h4 className="markdown_title">Answer:</h4>
-                  <Markdown>{md}</Markdown>
+                  <Markdown>{output?.data?.ans}</Markdown>
                 </div>
               </>
             )}

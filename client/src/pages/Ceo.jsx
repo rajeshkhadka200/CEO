@@ -7,8 +7,8 @@ import axios from "axios";
 import Sidebar from "../components/Sidebar";
 import { ContextProvider } from "../config/Context";
 
-
 const Ceo = () => {
+  const [finaloutput, setFinalOutput] = useState("");
   const [isloadingRes, setisloadingRes] = useState(false);
   const [image, setImage] = useState("");
   const { extraDesc, setExtraDesc } = useContext(ContextProvider);
@@ -61,6 +61,8 @@ const Ceo = () => {
       if (response.status === 200) {
         setisloadingRes(false);
         console.log("Data sent successfully.");
+        console.log("Response:", response.data.data);
+        setFinalOutput(response.data);
       } else {
         setisloadingRes(false);
         console.error("Failed to send data.");
@@ -87,6 +89,7 @@ const Ceo = () => {
         setDescription={setDescription}
       />
       <Sidebar
+        output={finaloutput}
         isloadingRes={isloadingRes}
         setisloadingRes={setisloadingRes}
         image={image}
