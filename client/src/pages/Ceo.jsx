@@ -44,6 +44,8 @@ const Ceo = () => {
 
       if (response.status === 200) {
         console.log("Data sent successfully.");
+        console.log(response);
+        // gql mutation 
       } else {
         console.error("Failed to send data.");
       }
