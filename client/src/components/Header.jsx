@@ -2,7 +2,14 @@ import React from "react";
 import "../styles/header.css";
 import colours from "../libs/colours.js";
 
-const Header = ({ selectedColor, onSelectColor, onReset, onExecute }) => {
+const Header = ({
+  selectedColor,
+  onSelectColor,
+  onReset,
+  onExecute,
+  toggleSidebar,
+  result,
+}) => {
   return (
     <div className="header_con">
       <button className="reset" onClick={onReset}>
@@ -21,9 +28,16 @@ const Header = ({ selectedColor, onSelectColor, onReset, onExecute }) => {
           ></div>
         ))}
       </div>
-      <button className="run" onClick={onExecute}>
-        Execute
-      </button>
+      {result ? (
+        <button className="view_result" onClick={() => toggleSidebar(true)}>
+          View Result
+        </button>
+      ) : (
+        <button className="run" onClick={onExecute}>
+          Execute
+        </button>
+      )}
+      {/* Button to manually toggle the sidebar */}
     </div>
   );
 };

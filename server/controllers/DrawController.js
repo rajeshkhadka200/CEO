@@ -6,7 +6,7 @@ export const getDraw = async (req, res) => {
 
     res.status(200).json({
       message: "Image processed successfully",
-      data: result.response.text(),
+      data: result,
     });
   } catch (error) {
     console.error("Error:", error);

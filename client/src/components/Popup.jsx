@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { IoCloseOutline } from "react-icons/io5";
+import { ContextProvider } from "../config/Context";
 
-const Popup = ({
-  open,
-  handleClose,
-  setDescription,
-  onExecute,
-  description,
-}) => {
+const Popup = ({ open, handleClose, onExecute }) => {
+  const { extraDesc, setExtraDesc } = useContext(ContextProvider);
+
   const style = {
     borderRadius: "5px",
     outline: "none",
@@ -24,18 +21,10 @@ const Popup = ({
     border: "1px solid #3e3e3e88",
   };
 
-  const [desc, setDesc] = useState("");
-
-  const handleDescChange = (e) => {
-    setDesc(e.target.value);
-  };
-
   const handleOkay = () => {
-    setDescription(desc);
-    console.log(description);
-
     onExecute();
-    // handleClose();
+    handleClose();
+    setExtraDesc("");
   };
 
   return (
@@ -54,8 +43,8 @@ const Popup = ({
         </div>
         <div className="content_additional">
           <textarea
-            value={desc}
-            onChange={handleDescChange}
+            value={extraDesc}
+            onChange={(e) => setExtraDesc(e.target.value)}
             rows="4"
             placeholder="Enter the extra description about your problem."
           />

@@ -2,10 +2,19 @@ import React, { createContext, useEffect, useState } from "react";
 
 export const ContextProvider = createContext();
 
-const Context = ({children}) => {
+const Context = ({ children }) => {
+  const [extraDesc, setExtraDesc] = useState("");
+
   return (
     <>
-      <ContextProvider.Provider value={{}}>{children}</ContextProvider.Provider>
+      <ContextProvider.Provider
+        value={{
+          extraDesc,
+          setExtraDesc,
+        }}
+      >
+        {children}
+      </ContextProvider.Provider>
     </>
   );
 };
