@@ -6,6 +6,7 @@ import Additional from "../components/Additional";
 import axios from "axios";
 import Sidebar from "../components/Sidebar";
 import { ContextProvider } from "../config/Context";
+import { toast } from "react-hot-toast";
 
 const Ceo = () => {
   const [finaloutput, setFinalOutput] = useState("");
@@ -60,14 +61,16 @@ const Ceo = () => {
 
       if (response.status === 200) {
         setisloadingRes(false);
-        console.log("Data sent successfully.");
-        console.log("Response:", response.data.data);
         setFinalOutput(response.data);
+        toast.success("Problem Solved.");
       } else {
         setisloadingRes(false);
         console.error("Failed to send data.");
+        toast.error("Unable to resolve the problem.");
       }
     } catch (error) {
+      toast.error("Unable to resolve the problem.");
+      setisloadingRes(false);
       console.error("Error sending data to backend:", error);
     }
   };

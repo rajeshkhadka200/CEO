@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <>
-      <Toaster />
+      <Toaster position="top-center" reverseOrder={false} />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

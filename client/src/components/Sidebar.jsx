@@ -7,8 +7,6 @@ import Skeleton from "@mui/material/Skeleton";
 import "../styles/sidebar.css";
 
 const Sidebar = ({ isOpen, toggleSidebar, image, isloadingRes, output }) => {
-  console.log("Output:", output);
-
   const toggleDrawer = (open) => () => {
     toggleSidebar(open); // Use the passed function to toggle sidebar state
   };

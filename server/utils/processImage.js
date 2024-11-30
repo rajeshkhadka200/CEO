@@ -29,7 +29,7 @@ export const processImg = async (imageBuffer, description) => {
  }
  `;
 
-  let prompttoModus = `Act as a CEO, Engineer, or Problem Solver and provide a detailed solution to the question, including step-by-step analysis, risks, improvements, and suggestions across domains like business, finance if necessary. Format the response in perfect markdown, using only h4 headings if necessary. Maintain readability by leaving one blank lines after headings and paragraphs. Avoid bullet points or numbered lists; structure the content in clear paragraphs`;
+  let prompttoModus = `Act as a CEO, Engineer, or Problem Solver and provide a detailed solution to the question, including step-by-step analysis of the problem. Format the response in perfect markdown, using only h4 headings if necessary. Maintain readability by leaving one blank lines after headings and paragraphs. Avoid bullet points or numbered lists; structure the content in clear paragraphs`;
   const data = await fetchGraphQL(INVOKE_MODEL, {
     instruction: prompttoModus, // give the background instruction for the modus model.
     prompt: question, // prompt for the modus model.
