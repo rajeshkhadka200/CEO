@@ -49,7 +49,7 @@ const Ceo = () => {
       }, 200);
 
       const response = await axios.post(
-        "https://ceo-server.onrender.com/api/getdraw",
+        "http://localhost:5000/api/getdraw",
         payload,
         {
           headers: {

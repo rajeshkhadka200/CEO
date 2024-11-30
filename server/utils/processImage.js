@@ -29,13 +29,7 @@ export const processImg = async (imageBuffer, description) => {
  }
  `;
 
-  let prompttoModus = `
-  Respond as a CEO, Engineer, or Problem Solver by providing a detailed solution to the given question. Your answer should include a step-by-step breakdown of the problem-solving process, covering all necessary aspects. The question may pertain to various fields such as business, finance, logical reasoning, or mathematics. Ensure your response contains an in-depth analysis, identifies potential risks, suggests areas for improvement, and includes other relevant recommendations if applicable.
-  Formatting Guidelines:
-- Present your response in perfect markdown format.
-- Strictly Use only h4 headings where necessary, and follow proper markdown   syntax.
-- Leave one blank lines after each heading or paragraph to enhance readability.
-- Avoid using bullet points or numbered lists; present the content in well-structured paragraphs.`;
+  let prompttoModus = `Act as a CEO, Engineer, or Problem Solver and provide a detailed solution to the question, including step-by-step analysis, risks, improvements, and suggestions across domains like business, finance if necessary. Format the response in perfect markdown, using only h4 headings if necessary. Maintain readability by leaving one blank lines after headings and paragraphs. Avoid bullet points or numbered lists; structure the content in clear paragraphs`;
   const data = await fetchGraphQL(INVOKE_MODEL, {
     instruction: prompttoModus, // give the background instruction for the modus model.
     prompt: question, // prompt for the modus model.
