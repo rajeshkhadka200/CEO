@@ -4,7 +4,7 @@ import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Markdown from "react-markdown";
 import Skeleton from "@mui/material/Skeleton";
 
-import "../styles/Sidebar.css";
+import "../styles/sidebar.css";
 
 const Sidebar = ({ isOpen, toggleSidebar, image, isloadingRes, output }) => {
   console.log("Output:", output);
